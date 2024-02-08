@@ -50,34 +50,43 @@ export default function Home() {
         </Button>
       </div>
       {character && (
-        <div>
-          <Card>
-            <CardHeader></CardHeader>
-            <CardContent className='flex flex-col gap-2'>
-              <NextImage
-                width={100}
-                height={100}
-                quality={100}
-                alt='캐릭터'
-                src={character.character_image}
-              ></NextImage>
-              <CardTitle>{character.character_name}</CardTitle>
-              <CardDescription>Lv. {character.character_level}</CardDescription>
+        <div className='flex justify-center items-center h-full p-4 pb-12'>
+          <Card className='rounded-xl border-[1px] border-slate-50 shadow-slate-100 shadow-2xl bg-white'>
+            <CardContent className='pt-4 flex flex-col gap-2 justify-center items-center'>
+              <div className='bg-mask-gradient rounded-full bg-slate-100 p-4 border-slate-200'>
+                <NextImage
+                  className='pr-2'
+                  width={120}
+                  height={120}
+                  quality={100}
+                  alt='캐릭터'
+                  src={character.character_image}
+                ></NextImage>
+              </div>
+            </CardContent>
+            <CardContent className='flex flex-col gap-2 text-slate-700'>
+              <CardTitle className='text-center text-slate-600'>
+                {character.character_name}
+              </CardTitle>
+              <CardDescription className='text-center'>
+                Lv. {character.character_level}
+              </CardDescription>
+              <hr className='m-2' />
               <CardDescription>
-                <span className='font-bold'>직업 | </span>
+                <span className='font-bold text-slate-700'>직업 | </span>
                 {character.character_class}
               </CardDescription>
               <CardDescription>
-                <span className='font-bold'>경험치 | </span>
+                <span className='font-bold text-slate-700'>경험치 | </span>
                 {character.character_exp?.toLocaleString()} (
                 {character.character_exp_rate}%)
               </CardDescription>
               <CardDescription>
-                <span className='font-bold'>서버 | </span>
+                <span className='font-bold text-slate-700'>서버 | </span>
                 {character.world_name}
               </CardDescription>
               <CardDescription>
-                <span className='font-bold'>길드 | </span>
+                <span className='font-bold text-slate-700'>길드 | </span>
                 {character.character_guild_name ?? '없음'}
               </CardDescription>
             </CardContent>
