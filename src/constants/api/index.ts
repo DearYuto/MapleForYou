@@ -1,3 +1,3 @@
 export const characterAPI = Object.freeze({
-  ocid: '/api/character',
+  characterInfo: '/api/character',
 });
